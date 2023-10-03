@@ -233,6 +233,13 @@ export class ProductControllerBase {
         },
 
         quantity: true,
+
+        shipments: {
+          select: {
+            id: true,
+          },
+        },
+
         totalPrice: true,
         updatedAt: true,
       },

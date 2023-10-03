@@ -27,6 +27,7 @@ model Order {
   product    Product?  @relation(fields: [productId], references: [id])
   productId  String?
   quantity   Int?
+  shipments  Shipment?
   totalPrice Int?
   updatedAt  DateTime  @updatedAt
 }
@@ -64,4 +65,12 @@ model Product {
   name        String?
   orders      Order[]
   updatedAt   DateTime @updatedAt
+}
+
+model Shipment {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  orderId   Order    @relation(fields: [ID], references: [id])
+  ID        String   @unique
+  updatedAt DateTime @updatedAt
 }

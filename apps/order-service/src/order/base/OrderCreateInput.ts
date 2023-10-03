@@ -15,6 +15,7 @@ import { CustomerWhereUniqueInput } from "../../customer/base/CustomerWhereUniqu
 import { ValidateNested, IsOptional, IsNumber, IsInt } from "class-validator";
 import { Type } from "class-transformer";
 import { ProductWhereUniqueInput } from "../../product/base/ProductWhereUniqueInput";
+import { ShipmentWhereUniqueInput } from "../../shipment/base/ShipmentWhereUniqueInput";
 
 @InputType()
 class OrderCreateInput {
@@ -63,6 +64,18 @@ class OrderCreateInput {
     nullable: true,
   })
   quantity?: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => ShipmentWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ShipmentWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ShipmentWhereUniqueInput, {
+    nullable: true,
+  })
+  shipments?: ShipmentWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

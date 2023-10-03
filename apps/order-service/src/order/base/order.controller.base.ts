@@ -62,6 +62,12 @@ export class OrderControllerBase {
               connect: data.product,
             }
           : undefined,
+
+        shipments: data.shipments
+          ? {
+              connect: data.shipments,
+            }
+          : undefined,
       },
       select: {
         createdAt: true,
@@ -82,6 +88,13 @@ export class OrderControllerBase {
         },
 
         quantity: true,
+
+        shipments: {
+          select: {
+            id: true,
+          },
+        },
+
         totalPrice: true,
         updatedAt: true,
       },
@@ -123,6 +136,13 @@ export class OrderControllerBase {
         },
 
         quantity: true,
+
+        shipments: {
+          select: {
+            id: true,
+          },
+        },
+
         totalPrice: true,
         updatedAt: true,
       },
@@ -165,6 +185,13 @@ export class OrderControllerBase {
         },
 
         quantity: true,
+
+        shipments: {
+          select: {
+            id: true,
+          },
+        },
+
         totalPrice: true,
         updatedAt: true,
       },
@@ -210,6 +237,12 @@ export class OrderControllerBase {
                 connect: data.product,
               }
             : undefined,
+
+          shipments: data.shipments
+            ? {
+                connect: data.shipments,
+              }
+            : undefined,
         },
         select: {
           createdAt: true,
@@ -230,6 +263,13 @@ export class OrderControllerBase {
           },
 
           quantity: true,
+
+          shipments: {
+            select: {
+              id: true,
+            },
+          },
+
           totalPrice: true,
           updatedAt: true,
         },
@@ -280,6 +320,13 @@ export class OrderControllerBase {
           },
 
           quantity: true,
+
+          shipments: {
+            select: {
+              id: true,
+            },
+          },
+
           totalPrice: true,
           updatedAt: true,
         },

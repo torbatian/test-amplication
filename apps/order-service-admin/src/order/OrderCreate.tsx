@@ -9,6 +9,7 @@ import {
 } from "react-admin";
 import { CustomerTitle } from "../customer/CustomerTitle";
 import { ProductTitle } from "../product/ProductTitle";
+import { ShipmentTitle } from "../shipment/ShipmentTitle";
 
 export const OrderCreate = (props: CreateProps): React.ReactElement => {
   return (
@@ -26,6 +27,13 @@ export const OrderCreate = (props: CreateProps): React.ReactElement => {
           <SelectInput optionText={ProductTitle} />
         </ReferenceInput>
         <NumberInput step={1} label="Quantity" source="quantity" />
+        <ReferenceInput
+          source="shipments.id"
+          reference="Shipment"
+          label="Shipments"
+        >
+          <SelectInput optionText={ShipmentTitle} />
+        </ReferenceInput>
         <NumberInput step={1} label="Total Price" source="totalPrice" />
       </SimpleForm>
     </Create>

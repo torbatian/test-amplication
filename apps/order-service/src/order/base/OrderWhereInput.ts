@@ -18,6 +18,7 @@ import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { ProductWhereUniqueInput } from "../../product/base/ProductWhereUniqueInput";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { ShipmentWhereUniqueInput } from "../../shipment/base/ShipmentWhereUniqueInput";
 
 @InputType()
 class OrderWhereInput {
@@ -77,6 +78,18 @@ class OrderWhereInput {
     nullable: true,
   })
   quantity?: IntNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => ShipmentWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ShipmentWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ShipmentWhereUniqueInput, {
+    nullable: true,
+  })
+  shipments?: ShipmentWhereUniqueInput;
 
   @ApiProperty({
     required: false,
